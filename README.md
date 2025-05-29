@@ -4,24 +4,80 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+I developed a small Angular 17-based e-commerce application that includes authentication, product management, and data visualization.
+Below are the main features and technical highlights:
 
-## Code scaffolding
+Created a login page where users can log in using a name and password.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+User credentials are stored using localStorage for session persistence.
 
-## Build
+Upon successful login, users are redirected to the product listing page.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Product Module
+Built a Product Module that:
 
-## Running unit tests
+Fetches products from the public API https://fakestoreapi.com.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Displays product listings with details.
 
-## Running end-to-end tests
+Implements Add/Edit functionality for products.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Since fakestoreapi is a mock API, changes appear successful in the network tab but don't persist.
 
-## Further help
+Features:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+View product details.
+
+Form validations using Reactive Forms.
+
+API interaction with RxJS operators.
+
+Used custom and built-in pipes (e.g., text truncation, currency formatting).
+
+ Items Module
+Created a separate Items Module for displaying tabular data with enhanced UI using PrimeNG components. use same api
+
+Features:
+
+Dynamic table with:
+
+Sorting
+
+Filtering (by category)
+
+Searching
+
+Pagination
+
+Export to CSV
+
+Used PrimeNG components:
+
+p-table
+
+p-dropdown
+
+p-toast
+
+p-dialog (modal)
+i used new features like
+Signals and input()/output() signal decorators instead of traditional @Input()/@Output().
+
+Standalone components and Standalone APIs.
+
+Server-side rendering (SSR).
+
+Lazy-loaded modules and lazy-loaded standalone components for performance optimization.
+
+Applied:
+
+Dependency Injection.
+
+Custom Pipes and Angular Built-in Pipes.
+
+RxJS for asynchronous and reactive programming.
+
+Strong typing via Interfaces.
+
+
+
