@@ -1,0 +1,28 @@
+@import "../../../../../styles/color";
+.details-container {
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 20px;
+  .product-image {
+    width: 15rem;
+    height: 15rem;
+  }
+  .details-content {
+    margin-top: 2rem;
+    .card-text {
+      margin-top: 1rem;
+    }
+    .details-title {
+      color: $primary-color;
+      font-size: 16px;
+      font-weight: 600;
+      margin-right: 0.5rem;
+    }
+  }
+}
+.skeleton-wrapper {
+  margin-top: 2rem;
+}

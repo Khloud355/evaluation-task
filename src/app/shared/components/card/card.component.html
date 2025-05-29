@@ -1,0 +1,14 @@
+<div class="card-container">
+  <div class="card-content">
+    <div class="card-info">
+      <img [src]="cardData()?.image" class="card-img-top" alt="card-img" />
+      <div class="card-body">
+        <h5 class="card-title">{{ cardData()?.title }}</h5>
+        <p class="card-description">
+          {{ cardData()?.description || "" | truncateText : 100 }}
+        </p>
+      </div>
+      <a [routerLink]="linkUrl()" class="btn card-bt-details">Show Details</a>
+    </div>
+  </div>
+</div>

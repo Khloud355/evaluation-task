@@ -1,0 +1,10 @@
+@import "../../../../../styles/color";
+.footer {
+  background-color: $primary-color;
+  color: #fff;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}

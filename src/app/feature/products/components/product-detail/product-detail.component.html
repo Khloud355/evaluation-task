@@ -1,0 +1,43 @@
+<div class="row details-container" *ngIf="productDetails">
+  <div class="col-md-4">
+    <img
+      class="product-image"
+      [src]="productDetails.image"
+      alt="product-image"
+    />
+  </div>
+  <div class="col-md-8">
+    <div class="details-content">
+      <div class="card-title">
+        <span class="details-title">Title:</span> {{ productDetails.title }}
+      </div>
+      <p class="card-text">
+        <span class="details-title">Description:</span
+        >{{ productDetails.description }}
+      </p>
+
+      <p class="card-text">
+        <span class="details-title">Category:</span
+        >{{ productDetails.category }}
+      </p>
+      <p class="card-text">
+        <span class="details-title">Price:</span>
+        {{ productDetails.price | currency : "EGP" }}
+        <strong>EGB</strong>
+      </p>
+    </div>
+
+    <div class="d-flex align-items-center justify-content-end">
+      <app-button
+        buttonType="text"
+        buttonStyle="style-nt"
+        buttonText="Edit Product"
+        (clicked)="showDialog(productDetails)"
+      ></app-button>
+    </div>
+  </div>
+</div>
+<div class="skeleton-wrapper">
+  <p-skeleton *ngIf="!productDetails" width="100%" height="20rem" />
+</div>
+<app-add-edit-product #addEditModal></app-add-edit-product>

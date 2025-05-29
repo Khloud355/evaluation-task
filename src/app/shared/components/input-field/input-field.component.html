@@ -1,0 +1,11 @@
+<div [formGroup]="parentFormGroup">
+  <input
+    type="{{ inputType() }}"
+    placeholder="{{ inputPlaceHolder() }}"
+    class="{{ inputClass() }}"
+    [formControlName]="inputFormControlName()!"
+    (input)="onInputTyping($event)"
+    (change)="onInputChange($event)"
+    [readOnly]="inputReadOnly()"
+  />
+</div>

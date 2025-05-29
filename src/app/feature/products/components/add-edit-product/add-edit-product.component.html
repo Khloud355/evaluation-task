@@ -1,0 +1,86 @@
+<p-dialog
+  [header]="modelTitle"
+  [modal]="true"
+  [(visible)]="display"
+  [style]="{ width: '50rem', height: '27rem' }"
+  [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }"
+  [maximizable]="true"
+>
+  <form [formGroup]="addEditForm" (ngSubmit)="dataSubmited()">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <app-input-field
+            inputType="text"
+            inputClass="form-control"
+            inputPlaceHolder="Product Name"
+            inputFormControlName="title"
+          ></app-input-field>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <app-input-field
+            inputType="text"
+            inputClass="form-control"
+            inputPlaceHolder="Product Price"
+            inputFormControlName="price"
+          ></app-input-field>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <textarea
+            class="form-control"
+            formControlName="description"
+            placeholder="Product Description"
+          ></textarea>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <p-dropdown
+            id="cate-dropdown"
+            [options]="categories"
+            placeholder="Select Category"
+            formControlName="category"
+            class="w-100 mt-1"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <app-input-field
+            *ngIf="addMode"
+            inputType="file"
+            inputClass="form-control"
+            inputPlaceHolder="Product image"
+            inputFormControlName="image"
+            (change)="onFileSelected($event)"
+          ></app-input-field>
+          <app-input-field
+            *ngIf="!addMode"
+            inputType="text"
+            inputClass="form-control"
+            inputPlaceHolder="Product image"
+            inputFormControlName="image"
+            [inputReadOnly]="true"
+          ></app-input-field>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex align-items-center justify-content-center">
+      <app-button
+        buttonType="submit"
+        buttonStyle="style-nt"
+        [buttonText]="buttonText"
+        [disabledButton]="addEditForm.invalid"
+      ></app-button>
+    </div>
+  </form>
+</p-dialog>
+<p-toast></p-toast>

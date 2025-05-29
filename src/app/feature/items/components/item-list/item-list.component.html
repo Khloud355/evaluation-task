@@ -1,0 +1,84 @@
+<div class="filter-search-section">
+  <div class="filter-section">
+    <label class="filter-text" for="cate-dropdown">Filter With Category</label>
+    <p-dropdown
+      id="cate-dropdown"
+      [options]="categories"
+      placeholder="Select Category"
+      (onChange)="dt.filter($event.value, 'category', 'equals')"
+    />
+  </div>
+  <app-input-field
+    #searchInput
+    inputType="text"
+    inputClass="form-control"
+    inputPlaceHolder="Search all items..."
+    (inputTyping)="dt.filterGlobal($event, 'startsWith')"
+  ></app-input-field>
+</div>
+<div class="text-end pb-4 mt-3">
+  <p-button
+    label="Export"
+    icon="pi pi-upload"
+    severity="secondary"
+    (onClick)="dt.exportCSV()"
+  />
+</div>
+<div class="card">
+  <p-table
+    #dt
+    stripedRows
+    [value]="allItems"
+    [paginator]="true"
+    [rows]="5"
+    [rowsPerPageOptions]="[5, 10, 20]"
+    [loading]="isLoading"
+    [globalFilterFields]="['title', 'category', 'price']"
+  >
+    <ng-template pTemplate="header">
+      <tr>
+        <th style="width: 30%">Title</th>
+        <th style="width: 15%">Image</th>
+        <th style="width: 15%" pSortableColumn="price">
+          Price <p-sortIcon field="price" />
+        </th>
+        <th style="width: 15%">Category</th>
+        <th style="width: 25%" pSortableColumn="reviews">
+          Reviews <p-sortIcon field="reviews" />
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="loadingbody">
+      <tr>
+        <td colspan="5">
+          <div
+            class="p-d-flex p-jc-center p-ai-center"
+            style="height: 200px"
+          ></div>
+        </td>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-customer>
+      <tr>
+        <td>{{ customer.title }}</td>
+        <td>
+          <img
+            [src]="customer.image"
+            style="width: 4rem; height: 4rem"
+            alt="item-image"
+          />
+        </td>
+        <td class="bold">{{ customer.price | currency : "EGP" }}</td>
+        <td>{{ customer.category }}</td>
+        <td>
+          <p-rating
+            [readonly]="true"
+            [cancel]="false"
+            [(ngModel)]="customer.reviews"
+          />
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

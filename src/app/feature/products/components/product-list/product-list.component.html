@@ -1,0 +1,26 @@
+<header class="product-list-header">
+  <app-button
+    buttonText="Add New Product"
+    buttonStyle="btn btn-primary"
+    (clicked)="showDialog()"
+  ></app-button>
+</header>
+<div class="all-products-container">
+  <div class="row">
+    <ng-container *ngIf="!isLoading">
+      <div class="col-4 card-content" *ngFor="let data of allProductData">
+        <app-card [cardData]="data" [linkUrl]="'details/' + data.id"></app-card>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="isLoading">
+      <div class="skeleton-wrapper">
+        <p-skeleton
+          *ngFor="let i of [0, 1, 2, 3]"
+          width="15rem"
+          height="20rem"
+        />
+      </div>
+    </ng-container>
+  </div>
+</div>
+<app-add-edit-product #addEditModal></app-add-edit-product>

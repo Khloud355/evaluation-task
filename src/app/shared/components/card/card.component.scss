@@ -1,0 +1,58 @@
+@import "../../../../styles/color";
+.card-container {
+  .card-content {
+    border-radius: 0.5rem;
+    margin-top: 2rem;
+    width: 18rem;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    background-color: #fff;
+    cursor: pointer;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+    // cursor: pointer;
+
+    &:hover {
+      transform: scale(1.1);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .card-info {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      gap: 1rem;
+
+      .card-img-top {
+        width: 10rem;
+        height: 10rem;
+      }
+      .card-bt-details {
+        background-color: $primary-color;
+        color: #fff;
+      }
+      .card-title {
+        height: 25px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        word-wrap: break-word;
+      }
+
+      .card-description {
+        height: 76px;
+        margin-top: 0.5rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        word-wrap: break-word;
+      }
+    }
+  }
+}

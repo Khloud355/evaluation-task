@@ -1,0 +1,8 @@
+<button
+  [type]="buttonType()"
+  [ngClass]="buttonStyle()"
+  (click)="buttonClicked()"
+  [disabled]="disabledButton()"
+>
+  {{ buttonText() }}
+</button>
